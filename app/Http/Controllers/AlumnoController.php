@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AlumnoRequest;
 use App\Models\Alumno;
-use Illuminate\Http\Request;
+use Illuminate\Http\{RedirectResponse, Request};
 use Inertia\Response;
 
 class AlumnoController extends Controller
@@ -21,17 +22,19 @@ class AlumnoController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): Response
     {
-        //
+        return inertia('Alumnos/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(AlumnoRequest $request): RedirectResponse
     {
-        //
+        Alumno::create($request->validated());
+
+        return redirect()->route('alumnos.index');
     }
 
     /**
