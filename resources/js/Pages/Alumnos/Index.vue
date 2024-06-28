@@ -7,6 +7,7 @@
 <script setup>
     import AppLayout from '@/Layouts/AppLayout.vue';
     import { Link } from '@inertiajs/vue3';
+    import { router } from '@inertiajs/vue3'
 
     defineProps({
         alumnos: {
@@ -17,7 +18,7 @@
 
     const deleteAlumno = id => {
         if (confirm('¿Estás seguro?')) {
-            Inertia.delete(route('alumnos.destroy', id))
+            router.delete(route('alumnos.destroy', id))
         }
     };
 </script>
