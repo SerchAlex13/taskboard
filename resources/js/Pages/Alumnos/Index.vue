@@ -50,20 +50,29 @@
                                         </p>
                                     </div>
                                 </div>
-                                <div class="hidden shrink-0 sm:flex sm:flex-col sm:items-end">
+                                <div class="flex justify-end gap-x-4">
                                     <p class="text-sm leading-6 text-gray-900">
-                                        <Link :href="route('alumnos.edit', alumno.id)">
+                                        <Link :href="route('alumnos.edit', alumno.id)" class="px-4 py-2 rounded-xl bg-blue-500 text-white hover:bg-blue-400">
                                             Editar
                                         </Link>
                                     </p>
                                     <p class="text-sm leading-6 text-gray-900">
-                                        <Link href="#" @click="deleteAlumno(alumno.id)">
+                                        <Link href="#" @click="deleteAlumno(alumno.id)" class="px-4 py-2 rounded-xl bg-red-500 text-white hover:bg-red-400">
                                             Eliminar
                                         </Link>
                                     </p>
                                 </div>
                             </li>
                         </ul>
+                    </div>
+
+                    <div class="flex justify-end gap-x-4 mt-4">
+                        <Link v-if="alumnos.current_page > 1" :href="alumnos.prev_page_url" class="px-4 py-2 rounded-xl hover:text-gray-600">
+                            Anterior
+                        </Link>
+                        <Link v-if="alumnos.current_page < alumnos.last_page" :href="alumnos.next_page_url" class="px-4 py-2 hover:text-gray-600">
+                            Siguiente
+                        </Link>
                     </div>
                 </div>
             </div>

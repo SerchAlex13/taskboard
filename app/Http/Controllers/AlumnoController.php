@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\AlumnoRequest;
 use App\Models\Alumno;
-use Illuminate\Http\{RedirectResponse, Request};
+use Illuminate\Http\RedirectResponse;
 use Inertia\Response;
 
 class AlumnoController extends Controller
@@ -14,7 +14,9 @@ class AlumnoController extends Controller
      */
     public function index(): Response
     {
-        $alumnos = Alumno::paginate(25);
+        define('ALUMNOS_POR_PAGINA', 10);
+
+        $alumnos = Alumno::paginate(ALUMNOS_POR_PAGINA);
 
         return inertia('Alumnos/Index', ['alumnos' => $alumnos]);
     }
