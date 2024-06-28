@@ -10,7 +10,8 @@
     import AlumnoForm from '@/Components/Alumnos/Form.vue';
 
     const form = useForm({
-        name: '',
+        nombres: '',
+        apellidos: '',
     });
 </script>
 
