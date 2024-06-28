@@ -48,17 +48,19 @@ class AlumnoController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Alumno $alumno): Response
     {
-        //
+        return inertia('Alumnos/Edit', ['alumno' => $alumno]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(AlumnoRequest $request, Alumno $alumno): RedirectResponse
     {
-        //
+        $alumno->update($request->validated());
+
+        return redirect()->route('alumnos.index');
     }
 
     /**

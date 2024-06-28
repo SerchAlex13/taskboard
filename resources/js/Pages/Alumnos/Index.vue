@@ -23,7 +23,7 @@
 </script>
 
 <template>
-    <AppLayout>
+    <AppLayout title="Alumnos">
         <template #header>
             <h1 class="font-semibold text-xl text-gray-800 leading-tight">
                 Alumnos
